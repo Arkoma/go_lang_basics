@@ -44,4 +44,13 @@ func main() {
 	default:
 		fmt.Println("many")
 	}
+
+	switch {
+	case n > 100:
+		fmt.Println("n is very big")
+	case n > 10:
+		fmt.Println("n is big")
+	default:
+		fmt.Println("n is small")
+	}
 }
