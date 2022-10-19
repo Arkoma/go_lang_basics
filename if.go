@@ -31,4 +31,17 @@ func main() {
 	if fraction := a / b; fraction > 0.5 {
 		fmt.Println("a is more than half of b")
 	}
+
+	n := 2
+
+	switch n {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	default:
+		fmt.Println("many")
+	}
 }
