@@ -18,4 +18,14 @@ func main() {
 		}
 		fmt.Println(i)
 	}
+
+	fmt.Println("----")
+
+	for i := 0; i < 3; i++ {
+		if i < 1 {
+			continue
+		}
+		fmt.Println(i)
+	}
+
 }
