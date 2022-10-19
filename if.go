@@ -1,4 +1,4 @@
-// Calculate the mean of two numbers
+// if examples
 package main
 
 import (
