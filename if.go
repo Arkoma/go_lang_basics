@@ -25,4 +25,10 @@ func main() {
 	if x < 20 || x > 30 {
 		fmt.Println("x is out of range")
 	}
+
+	a, b := 11.0, 20.0
+
+	if fraction := a / b; fraction > 0.5 {
+		fmt.Println("a is more than half of b")
+	}
 }
