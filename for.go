@@ -28,4 +28,22 @@ func main() {
 		fmt.Println(i)
 	}
 
+	fmt.Println("----")
+
+	a := 0
+	for a < 3 {
+		fmt.Println(a)
+		a++
+	}
+
+	fmt.Println("----")
+
+	b := 0
+	for {
+		if b > 2 {
+			break
+		}
+		fmt.Println(b)
+		b++
+	}
 }
