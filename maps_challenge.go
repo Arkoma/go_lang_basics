@@ -1,4 +1,4 @@
-// Maps
+// Maps challenge
 package main
 
 import (
