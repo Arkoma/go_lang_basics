@@ -1,4 +1,4 @@
-// Budget struct with methods
+// Budget struct with a constructor
 package main
 
 import (
@@ -12,6 +12,28 @@ type Budget struct {
 	Expires    time.Time
 }
 
+func NewBudget(campaignID string, balance float64, expires time.Time) (*Budget, error) {
+	if campaignID == "" {
+		return nil, fmt.Errorf("empty campaign")
+	}
+
+	if balance <= 0 {
+		return nil, fmt.Errorf("balance must be bigger than 0")
+	}
+
+	if expires.Before(time.Now()) {
+		return nil, fmt.Errorf("bad expiration date")
+	}
+
+	b := Budget{
+		CampaignID: campaignID,
+		Balance:    balance,
+		Expires:    expires,
+	}
+
+	return &b, nil
+}
+
 func (b Budget) TimeLeft() time.Duration {
 	return b.Expires.Sub(time.Now().UTC())
 }
@@ -21,10 +43,19 @@ func (b *Budget) Update(sum float64) {
 }
 
 func main() {
-	b := Budget{"Kittens", 22.3, time.Now().Add(7 * 24 * time.Hour)}
-	fmt.Println(b.TimeLeft())
+	expires := time.Now().Add(7 * 24 * time.Hour)
+	b, err := NewBudget("puppies", 32.2, expires)
+	if err != nil {
+		fmt.Println("ERROR:", err)
+	} else {
+		fmt.Printf("%#v\n", b)
+	}
 
-	b.Update(10.5)
-	fmt.Println(b.Balance)
+	b2, err := NewBudget("puppies", -3.2, expires)
+	if err != nil {
+		fmt.Println("ERROR:", err)
+	} else {
+		fmt.Printf("%#v\n", b2)
+	}
 
 }
