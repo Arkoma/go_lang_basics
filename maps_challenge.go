@@ -17,7 +17,7 @@ func main() {
 	`
 	words := []string(strings.Fields(text))
 
-	wordmap := map[string]int8{}
+	wordmap := map[string]int{}
 	for _, word := range words {
 		punctuation := word[len(word)-1:]
 		key := ""
@@ -26,12 +26,7 @@ func main() {
 		} else {
 			key = strings.ToLower(word)
 		}
-		value, there := wordmap[key]
-		if there {
-			wordmap[key] = value + 1
-		} else {
-			wordmap[key] = 1
-		}
+		wordmap[key]++
 	}
 	fmt.Println(wordmap)
 }
