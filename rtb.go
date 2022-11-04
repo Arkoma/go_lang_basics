@@ -1,4 +1,6 @@
-// Context example
+/*
+Calculate total download size for NYC taxi data for 2020
+*/
 package main
 
 import (
@@ -21,7 +23,7 @@ func bestBid(url string) Bid {
 	}
 }
 
-var devaultBid = Bid{
+var defaultBid = Bid{
 	AdURL: "https://adsЯus.com/default",
 	Price: 0.02,
 }
@@ -36,7 +38,7 @@ func findBid(ctx context.Context, url string) Bid {
 	case bid := <-ch:
 		return bid
 	case <-ctx.Done():
-		return devaultBid
+		return defaultBid
 	}
 }
 
